@@ -21,6 +21,10 @@
 //
 // Use Case 3:
 // cat message.txt | ./steg.exe filename
+//
+// To Read the Message:
+// hexdump -C filename
+
 
 int main(int argc, char* argv[]) {
     if(argv[1] == nullptr) {
