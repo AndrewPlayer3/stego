@@ -14,8 +14,13 @@ int main(int argc, char* argv[]) {
     }
 
     if(argv[2] == nullptr) {
-        std::cout << "ERROR: Please enter a message after the filename" << std::endl;
-        return 1;
+        std::cout << "Please Enter a Message: ";
+        std::string message;
+        std::getline(std::cin, message);
+        std::ofstream out;
+        out.open(argv[1], std::ios::app);
+        out << message;
+        return 0;
     }
 
     std::ofstream out;
