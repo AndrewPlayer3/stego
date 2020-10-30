@@ -19,7 +19,7 @@
 // ./steg.exe filename
 // Please Enter a Message: "message"
 //
-//Use Case 3:
+// Use Case 3:
 // cat message.txt | ./steg.exe filename
 
 int main(int argc, char* argv[]) {
