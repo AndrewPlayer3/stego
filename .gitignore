@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# VS Code Stuff
+*.vscode
+
+# File Stuff
+.DS_STORE
+
+# Binary
+steg
