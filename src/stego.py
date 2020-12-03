@@ -14,7 +14,7 @@ def encode(key_path, img_path, message, channel):
     width, height = img.size
     img_array = np.array(list(img.getdata()))
 
-    channels = 3 if img.mode == 'RBG' else 4
+    channels = 3 if img.mode == 'RGB' else 4
     total_pixels = img_array.size//channels
     message = en.encrypt(key_path, message) + "$iM913"
     
@@ -45,7 +45,7 @@ def decode(key_path, img_path, channel):
     img = Image.open(img_path, 'r')
     img_array = np.array(list(img.getdata()))
 
-    channels = 3 if img.mode == 'RBG' else 4
+    channels = 3 if img.mode == 'RGB' else 4
     total_pixels = img_array.size//channels
 
     bits = ""

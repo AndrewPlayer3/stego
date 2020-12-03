@@ -67,7 +67,6 @@ while True:
     if event == 'Open':
         image = sg.popup_get_file('PNG Image to open', default_path='')
         image_elem.update(image)
-        max_chars.update(st.max_message_size(image))
     if event == 'Close':
         break
 
