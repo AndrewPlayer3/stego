@@ -29,8 +29,10 @@ def encode(key_path, img_path, message, channel):
         index = 0
         for pxl in range(total_pixels):
             if index < len(bits):
-                # Add the message bits at index to the last 8 bits of pixel pxl in the "channel" channel
-                img_array[pxl][channel] = int(bin(img_array[pxl][channel])[2:9] + bits[index], 2)
+                # Change the last bit at (pxl, channel) to be bit[index]
+                changed = bin(img_array[pxl][channel])[2:-1]
+                changed = changed + bits[index]
+                img_array[pxl][channel] = int(changed, 2)
                 index += 1
 
         img_array = img_array.reshape(height, width, channels)

@@ -30,7 +30,7 @@ layout = [
             [image_elem]
            ,[sg.Text('Enter your keypath: '), sg.InputText()]
            ,[sg.Text('Enter your message: '), sg.InputText()] 
-           ,[sg.Text('Channels are 0,1,2 for RGB, and 1,2,3 for RGBA(PNG with Transparency), respectively')]
+           ,[sg.Text('Channels are 0,1,2 for RGB, and 1,2,3 for RGBA(PNG with Transparency), respectively.')]
            ,[sg.Text('Enter desired channel: '), sg.InputText()]
            ,[sg.Button('Encode'), 
              sg.Button('Decode'),
