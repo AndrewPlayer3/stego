@@ -34,6 +34,9 @@
 # VS Code Stuff
 *.vscode
 
+# Pycache Stuff
+*.pyc
+
 # File Stuff
 .DS_STORE
 
