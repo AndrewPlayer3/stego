@@ -14,6 +14,7 @@ def encode(key_path, img_path, message, channel):
     width, height = img.size
     img_array = np.array(list(img.getdata()))
 
+    # 3 channels for RGB and 4 channels for RGBA/Anything else
     channels = 3 if img.mode == 'RGB' else 4
     total_pixels = img_array.size//channels
     message = en.encrypt(key_path, message) + "$iM913"
@@ -21,6 +22,7 @@ def encode(key_path, img_path, message, channel):
     # Join all the ascii values into a string, formatted to binary.
     bits = ''.join([format(ord(char), "08b") for char in message])
 
+    # Check if we have enough pixels for the message.
     if len(bits) > total_pixels:
         return False
     else:
@@ -45,15 +47,19 @@ def decode(key_path, img_path, channel):
     img = Image.open(img_path, 'r')
     img_array = np.array(list(img.getdata()))
 
+    # 3 channels for RGB and 4 channels for RGBA/Anything else
     channels = 3 if img.mode == 'RGB' else 4
     total_pixels = img_array.size//channels
 
+    # Join all the message bits in binary form into one string
     bits = ""
     for pxl in range(total_pixels):
         bits += (bin(img_array[pxl][channel])[2:][-1])
 
+    # Break the message apart into groups of 8 (the characters)
     bits = [bits[i:i+8] for i in range(0, len(bits), 8)]
 
+    # Piece the message back together :)
     message = ""
     for i in range(len(bits)):
         if message[-6:] == "$iM913":
