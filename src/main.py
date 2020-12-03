@@ -25,7 +25,6 @@ if not image:
 # Layout 
 # ------------------------------------------------------------------
 image_elem = sg.Image(image)
-max_chars = sg.Text(st.max_message_size(image))
 
 layout = [
             [image_elem]
